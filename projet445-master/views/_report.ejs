@@ -1,0 +1,51 @@
+<body>
+   <br>
+   <h1>Reports</h1>
+
+   <h4>Select Report</h4>
+   <form form action="/reports" method="POST">
+      <p>
+         <select autofocus class="browser-default custom-select" name="reports" id="reports">
+            
+            <option <%  obc %> value="1">All Customers - Sorted by Customer Last Name, First Name</option>
+            <option <%  obs %> value="2">All Customer - Sorted by Current Total Sales Decreasing</option>
+            <option <%  obr %> value="3">Three Random Customers - Promotional Giveaway (Not Repeating)</option>
+         </select>
+      </p>
+
+         <input type="submit" value="Run Report" id= "reports" class="btn btn-primary" />
+     </td>
+   </form>
+
+   <!-- Omitted Error Checking / Needs to be added -->
+<% if (type === "post") { %>
+   <% if (trans === "success") { %>
+           <table class="table table-hover">
+               <thead>
+                   <tr>
+                       <th>ID</th>
+                       <th>First Name</th>
+                       <th>Last name</th>
+                       <th>State</th>
+                       <th>Sales YTD</th>
+                       <th>Prev Years Sales</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <% report.forEach(customer => { %>
+                   <tr>
+                       <td><%= customer.cusid %></td>
+                       <td><%= customer.cusfname %></td>
+                       <td><%= customer.cuslname %></td>
+                       <td><%= customer.cusstate %></td>
+                       <td><%= customer.cussalesytd %></td>
+                       <td><%= customer.cussalesprev %></td>
+                       </td>
+                   </tr>
+                   <% }); %>
+               </tbody>    
+           </table>
+       <% } %>
+<% } %>
+
+

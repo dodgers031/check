@@ -1,0 +1,94 @@
+
+<%- include("_header") -%>
+
+<h1>Create New Customer</h1>
+
+<form action="/create" method="post">
+  <div class="form-horizontal">
+
+    <%- include("_new") -%>
+
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2"></label>
+      <div class="col-sm-10">
+        <input type="submit" value="Save" class="btn btn-primary " />
+        <a class="btn btn-primary cancel" href="/manage">Cancel</a>
+      </div>
+    </div>
+  </div>
+</form>
+
+<%- include("_footer") -%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <%- include("_header") -%>
+
+<h1>Create a record</h1>
+
+<form action="/create" method="post">
+    <div class="form-horizontal">
+
+        <%- include("_editor") -%>
+        <table>
+            <tr>
+                <td><label for="cusid"> ID</label>:</td>
+                <td><input type="number" name="cusid" id="cusid" value="<%= customer.cusid %>" /></td>
+                <td>(required)</td>
+            </tr>
+            <tr>
+                <td><label for="cusfname">First Name</label>:</td>
+                <td><input type="text" name="cusfname" id="cusfname" value="<%= customer.cusfname %>" /></td>
+                <td>(required)</td>
+            </tr>
+            <tr>
+                <td><label for="cuslname">Last Name</label>:</td>
+                <td><input type="text" name="cuslname" id="cuslname" value="<%= customer.cuslname %>" /></td>
+                <td>(required)</td>
+            </tr>
+            <tr>
+                <td><label for="cusstate">State</label>:</td>
+                <td><input type="text" name="cusstate" id="cusstate" value="<%= customer.cusstate %>" /></td>
+
+            </tr>
+            <tr>
+                <td><label for="cussalesytd">Sales YTD</label>:</td>
+                <td><input type="text" name="cussalesytd" id="cussalesytd" value="<%= customer.cussalesytd %>" />
+                </td>
+
+            </tr>
+            <tr>
+                <td><label for="cussalesprev">State</label>:</td>
+                <td><input type="text" name="cussalesprev" id="cussalesprev" value="<%= customer.cussalesprev %>" />
+                </td>
+
+            </tr>
+            <tr>
+                <td span="2">
+                    <input type="submit" value="Save" class="btn btn-default btn-success" />
+                    <a class="btn btn-outline-dark cancel" href="/create">Reset</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form> -->

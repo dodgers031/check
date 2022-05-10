@@ -1,0 +1,42 @@
+<%- include("_header") -%>
+
+<h1>Customer Import</h1>
+
+<br>
+<h2>Total number of records in the datbase: <%= totRecs %></h2>
+<br>
+<h2>Select a file with customer for Databse insert</h2>
+<form>
+    <input type="file" name="filename" required>
+    <p></p>
+    <input type="submit" class="btn btn-primary" value="Import Customers">
+</form>
+<p id="result"></p>
+
+<script>
+    document.querySelector("form").addEventListener("submit", e => {
+        // Cancel default behavior of sending a synchronous POST request
+        e.preventDefault();
+        // Create a FormData object, passing the form as a parameter
+        const formData = new FormData(e.target);
+        // Send form data to the server with an asynchronous POST request
+        fetch("/import", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                const resultElement = document.getElementById("result");
+                if (data.substring(0, 5) === "Error") {
+                    resultElement.innerText = `Error occurred!  ${data}`
+                } else {
+                    resultElement.innerText = data;
+                };
+            })
+            .catch(err => {
+                document.getElementById("message").textContent = `Error: ${err.message}`;
+            });
+    });
+</script>
+
+<%- include("_footer") -%>
